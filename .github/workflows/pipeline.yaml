@@ -25,7 +25,7 @@ jobs:
 
       - name: Helm Testing
         run: |
-          bash ./scripts/helm-test.sh   ${{ secrets.STAGING_NAMESPACE }}  crow
+          bash ./scripts/helm-test.sh   ${{ secrets.STAGING_NAMESPACE }}  ${{ secrets.RELEASE_NAME }}
 
   deploy-to-staging:
     runs-on: ubuntu-latest
@@ -53,4 +53,4 @@ jobs:
           bash ./scripts/install-helm.sh
       - name: Deploy to staging
         run: |
-          bash ./scripts/deploy.sh ${{ secrets.STAGING_NAMESPACE }} crow
+          bash ./scripts/deploy.sh ${{ secrets.STAGING_NAMESPACE }} ${{ secrets.RELEASE_NAME }}
