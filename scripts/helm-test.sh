@@ -19,7 +19,7 @@ helm upgrade --install "$RELEASE_NAME" pages --debug
 echo "------------------------End time is--------  $(date +%Y-%m-%dT%H%M%S%z)"
 
 echo '---------------------Started testing--------------'
-sleep 60s
+sleep 35s
 kubectl get po -n "$NAMESPACE" --show-labels
 kubectl get svc -n "$NAMESPACE" -o wide
 helm test "$RELEASE_NAME" --logs
